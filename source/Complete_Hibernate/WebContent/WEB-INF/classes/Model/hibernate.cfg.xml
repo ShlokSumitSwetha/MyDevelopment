@@ -1,0 +1,37 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+          "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+          "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		
+		<property name="connection.url">
+			jdbc:oracle:thin:@dhsdbo04:1671:WHBCCSD
+		</property>
+		<property name="dialect">
+			org.hibernate.dialect.Oracle9Dialect
+		</property>
+		<property name="myeclipse.connection.profile">
+			oracle.jdbc.driver.OracleDriver
+		</property>
+		<property name="connection.driver_class">
+			oracle.jdbc.driver.OracleDriver
+		</property>
+		<property name="show_sql">true</property>
+
+		<property name="schema">BCCSC02_USER</property>
+		<property name="hibernate.connection.username">
+			BCCSC02_USER
+		</property>
+		<property name="hibernate.connection.password">
+			bc02usr
+		</property>
+
+		<mapping resource="Model/BatchEventLog.hbm.xml" />
+		<mapping resource="Model/BatchFile.hbm.xml" />
+		<mapping resource="Model/CreditCardAuth.hbm.xml" />
+		<mapping resource="Model/CreditCardInfo.hbm.xml" />
+		<mapping resource="Model/SecureDataVault.hbm.xml" />
+		<mapping resource="Model/AppPropsInfo.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

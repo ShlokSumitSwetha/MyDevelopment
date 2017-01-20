@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="Inheritance.College" table="CollegeDiscriminator">
+		<id name="collegecode" column="collegecode">
+			<generator class="assigned" />
+		</id>		
+		
+		<discriminator column="college_discriminator_type" type="string"/>
+		<property name="collegeName" column="collegeName" />
+		
+		<subclass name="Inheritance.Engineering" discriminator-value="ENGINEERING">
+		
+		<property name="EEE" column="EEE" />
+		<property name="ECE" column="ECE" />
+		<property name="CSE" column="CSE" />
+		
+		</subclass>
+		
+		<subclass name="Inheritance.Medicine" discriminator-value="MEDICINE">
+		
+		<property name="mbbs" column="MBBS" />
+		<property name="dentist" column="DENTIST" />
+		
+		</subclass>
+
+		
+	</class>
+</hibernate-mapping>

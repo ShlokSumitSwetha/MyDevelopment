@@ -1,0 +1,137 @@
+<?xml version="1.0"?>
+            <!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+<class  name="Model.CreditCardInfo" 
+    table="BCCSC02_OWNER.CREDIT_CARD_INFO" >
+	
+	<id
+        name="cardSeqNumber"
+        column="CCI_CARD_SEQ_NBR">
+        <generator class="assigned" />
+    </id>
+    <!-- SDV_VAULT_SEQ_NBR: INTEGER NULL (FK) -->
+    <property
+        name="vaultSeqNumber"
+        column="SDV_VAULT_SEQ_NBR"
+    />
+    <!-- CCI_APP_ID: VARCHAR2(5) NULL -->
+    <property
+        name="appID"
+        column="CCI_APP_ID"
+    />
+    <!-- CCI_SECURE_TOKEN_ID: VARCHAR2(16) NULL -->
+    <property
+        name="secureTokenID"
+        column="CCI_SECURE_TOKEN_ID"
+    />
+    <!-- CCI_CARD_EXP_DT: DATE NULL -->
+    <property
+        name="cardExpDate"
+        column="CCI_CARD_EXP_DT"
+    />
+    <!-- CCI_CARD_TYPE_DESC: VARCHAR2(4) NULL -->
+    <property
+        name="cardTypeDesc"
+        column="CCI_CARD_TYPE_DESC"
+    />
+    <!-- CCI_POLICY_NBR: VARCHAR2(20) NULL -->
+    <property
+        name="policyNumber"
+        column="CCI_POLICY_NBR"
+    />
+    <!-- CCI_QUOTE_NBR: VARCHAR2(20) NULL -->
+    <property
+        name="quoteNumber"
+        column="CCI_QUOTE_NBR"
+    />
+    <!-- CCI_FIRST_NM: VARCHAR2(20) NULL -->
+    <property
+        name="firstName"
+        column="CCI_FIRST_NM"
+    />
+    <!-- CCI_MIDDLE_NM: VARCHAR2(1) NULL -->
+    <property
+        name="middleName"
+        column="CCI_MIDDLE_NM"
+    />
+    <!-- CCI_LAST_NM: VARCHAR2(20) NULL -->
+    <property
+        name="lastName"
+        column="CCI_LAST_NM"
+    />
+    <!-- CCI_LINE1_ADDR: VARCHAR2(30) NULL -->
+    <property
+        name="lineOneAddr"
+        column="CCI_LINE1_ADDR"
+    />
+    <!-- CCI_LINE2_ADDR: VARCHAR2(30) NULL -->
+    <property
+        name="lineTwoAddr"
+        column="CCI_LINE2_ADDR"
+    />
+    <!-- CCI_CITY_NM: VARCHAR2(22) NULL -->
+    <property
+        name="cityName"
+        column="CCI_CITY_NM"
+    />
+    <!-- CCI_ST_CD: VARCHAR2(2) NULL -->
+    <property
+        name="stateCode"
+        column="CCI_ST_CD"
+    />
+    <!-- CCI_ZIP_CD: VARCHAR2(5) NULL -->
+    <property
+        name="zipCode"
+        column="CCI_ZIP_CD"
+    />
+    <!-- CCI_CARD_DATA_STAT_CD: VARCHAR2(3) NULL -->
+    <property
+        name="cardDataStatusCode"
+        column="CCI_CARD_DATA_STAT_CD"
+    />
+    <!-- CCI_LAST_ACTIVITY_TYP_CD: VARCHAR2(3) NULL -->
+    <property
+        name="lastActivityTypeCode"
+        column="CCI_LAST_ACTIVITY_TYP_CD"
+    />
+    <!-- CCI_LAST_AUTH_DT: Date NULL -->
+    <property
+        name="lastAuthDate"
+        column="CCI_LAST_AUTH_DT"
+    />
+    <!-- CCI_LAST_SETTLE_DT: Date NULL -->
+    <property
+        name="lastSettleDate"
+        column="CCI_LAST_SETTLE_DT"
+    />
+    <!-- CCI_CREATED_DT: Date NULL -->
+    <property
+        name="createdDate"
+        column="CCI_CREATED_DT"
+    />
+    <!-- CCI_MODIFIED_DT: Date NULL -->
+    <property
+        name="modifiedDate"
+        column="CCI_MODIFIED_DT"
+    />
+
+
+		 <set name="creditcardauth" table="BCCSC02_OWNER.CREDIT_CARD_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CCI_CARD_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="Model.CreditCardAuth" />
+        </set><!--
+        <set name="oneshotCcTranses" table="BCCSC02_OWNER.ONESHOT_CC_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CCI_CARD_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="Model.OneshotCcTrans" />
+        </set>
+
+--></class>
+</hibernate-mapping>

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 26, 2011 1:25:44 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="Model.AppPropsInfo" table="APP_PROPS_INFO">
+        <composite-id name="id" class="Model.AppPropsInfoId">
+            <key-property name="propsNm" type="string">
+                <column name="APP_PROPS_NM" length="20" />
+            </key-property>
+            <key-property name="propsValueDesc" type="string">
+                <column name="APP_PROPS_VALUE_DESC" length="50" />
+            </key-property>
+            <key-property name="propsDtlTxt" type="string">
+                <column name="APP_PROPS_DTL_TXT" length="50" />
+            </key-property>
+            <key-property name="propsDt" type="date">
+                <column name="APP_PROPS_DT" length="7" />
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>

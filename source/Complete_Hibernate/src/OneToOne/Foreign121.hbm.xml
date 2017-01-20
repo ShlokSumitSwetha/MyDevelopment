@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="OneToOne.Employee" table="Employeeshared">
+        <id name="empno" >
+            <column name="EMPLOYEENUMBER" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="empName" type="string">
+            <column name="empName" length="50" />
+        </property>
+        
+       
+       <many-to-one name="address" 
+                    class="OneToOne.Address" 
+                    column="EMPLOYEENUMBER"
+                    unique="true">
+       </many-to-one>
+    </class>
+    
+    
+     <class name="OneToOne.Address" table="addressshared">
+        <id name="id" >
+            <column name="addressid" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="street" type="string">
+            <column name="street" length="50" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="50" />
+        </property>
+        <property name="state" type="string">
+            <column name="state" length="50" />
+        </property>
+        <property name="pinno">
+            <column name="pinno" length="50" />
+        </property>
+       
+          
+    </class>
+</hibernate-mapping>

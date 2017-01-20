@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+            <!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+      
+<hibernate-mapping>
+<class 
+    name="com.i21.cc.model.OneShotCCTrans" 
+    table=""
+>
+	<!-- OCT_TRANS_SEQ_NBR: INTEGER NOT NULL -->
+	<id
+        name="transSeqNymber"
+        column="OCT_TRANS_SEQ_NBR"
+    >
+        <generator class="increment" />
+    </id>
+    <!-- CCI_CARD_SEQ_NBR: INTEGER NULL (FK) -->
+    <property
+        name="cardSeqNumber"
+        column="CCI_CARD_SEQ_NBR"
+    />
+    <!-- CCA_AUTH_SEQ_NBR: INTEGER NULL (FK) -->
+    <property
+        name="authSeqNumber"
+        column="CCA_AUTH_SEQ_NBR"
+    />
+    <!-- OCT_APP_ID: VARCHAR2(5) NULL -->
+    <property
+        name="appID"
+        column="OCT_APP_ID"
+    />
+    <!-- OCT_CUST_IP_ADDR: VARCHAR2(15) NULL -->
+    <property
+        name="customerIPAddr"
+        column="OCT_CUST_IP_ADDR"
+    />
+    <!-- OCT_POLICY_NBR: VARCHAR2(20) NULL -->
+    <property
+        name="policyNumber"
+        column="OCT_POLICY_NBR"
+    />
+    <!-- OCT_QUOTE_NBR: VARCHAR2(20) NULL -->
+    <property
+        name="quoteNumber"
+        column="OCT_QUOTE_NBR"
+    />
+    <!-- OCT_SOURCE_APP_CD: CHAR(3) NULL -->
+    <property
+        name="sourceAppCd"
+        column="OCT_SOURCE_APP_CD"
+    />
+    <!-- OCT_TRANS_AMT: NUMBER(9,2) NULL -->
+    <property
+        name="transactionAmount"
+        column="OCT_TRANS_AMT"
+    />
+    <!-- OCT_TRACKING_NBR: VARCHAR2(22) NULL -->
+    <property
+        name="trackingNumber"
+        column="OCT_TRACKING_NBR"
+    />
+    <!-- OCT_MERCHANT_NBR: VARCHAR2() NULL -->
+    <property
+        name="merchantNumber"
+        column="OCT_MERCHANT_NBR"
+    />
+    <!-- OCT_TRANS_STATUS_CD: VARCHAR2(10) NULL -->
+    <property
+        name="transStatusCd"
+        column="OCT_TRANS_STATUS_CD"
+    />
+    <!-- OCT_INSURED_ST_CD: CHAR(2) NULL -->
+    <property
+        name="insuredStateCd"
+        column="OCT_INSURED_ST_CD"
+    />
+    <!-- OCT_INSURED_FRST_NM: VARCHAR2(20) NULL -->
+    <property
+        name="insureFirstName"
+        column="OCT_INSURED_FRST_NM"
+    />
+    <!-- OCT_INSURED_MID_NM: VARCHAR2(1) NULL -->
+    <property
+        name="insuredMiddleName"
+        column="OCT_INSURED_MID_NM"
+    />
+    <!-- OCT_INSURED_LAST_NM: VARCHAR2(20) NULL -->
+    <property
+        name="insuredLastName"
+        column="OCT_INSURED_LAST_NM"
+    />
+    <!-- OCT_SETTLE_IND: CHAR(1) NULL -->
+    <property
+        name="settleInd"
+        column="OCT_SETTLE_IND"
+    />
+    <!-- OCT_TRANS_DT: Date NULL -->
+    <property
+        name="transDate"
+        column="OCT_TRANS_DT"
+    />
+    <!-- OCT_SETTLED_DT: Date NULL -->
+    <property
+        name="settledDate"
+        column="OCT_SETTLED_DT"
+    />
+    <!-- OCT_SETTLE_BATCH_NBR: VARCHAR2() NULL -->
+    <property
+        name="settleBatchNumber"
+        column="OCT_SETTLE_BATCH_NBR"
+    />
+    <!-- OCT_TRANS_USER_ID: VARCHAR2(20) NULL -->
+    <property
+        name="transUserID"
+        column="OCT_TRANS_USER_ID"
+    />
+    <!-- BAF_SETTLE_FILE_SEQ_NBR: NUMBER(20) NULL (FK) -->
+    <property
+        name="settleFileSeqNumber"
+        column="BAF_SETTLE_FILE_SEQ_NBR"
+    />
+    <!-- BAF_RETURN_FILE_SEQ_NBR: NUMBER(20) NULL (FK) -->
+    <property
+        name="returnFileSeqNumber"
+        column="BAF_RETURN_FILE_SEQ_NBR"
+    />
+    <!-- OCT_CREATED_DT: Date NULL -->
+    <property
+        name="createdDate"
+        column="OCT_CREATED_DT"
+    />
+    <!-- OCT_MODIFIED_DT: Date NULL -->
+    <property
+        name="modifiedDate"
+        column="OCT_MODIFIED_DT"
+    />
+    <!-- OCT_MODIFIED_USER_ID: VARCHAR2(20) NULL -->
+    <property
+        name="modifiedUserID"
+        column="OCT_MODIFIED_USER_ID"
+    />
+
+</class>
+</hibernate-mapping>

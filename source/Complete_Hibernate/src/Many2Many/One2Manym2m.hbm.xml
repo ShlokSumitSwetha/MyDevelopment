@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="Many2Many.Human" table="Human">
+		<id name="humanid" column="humanid">
+			<generator class="native" />
+		</id>
+		<property name="humanname" column="humanname" />
+
+		<set name="monkeys" table="human_monkey"   cascade="all">
+			<key>
+				<column name="humanid" not-null="true"/>
+			</key>
+			<many-to-many class="Many2Many.Monkey" column="monkeyid"></many-to-many>
+			
+		</set>
+	</class>
+
+	<class name="Many2Many.Monkey" table="Monkey">
+		<id name="monkeyid" column="monkeyid">
+			<generator class="native" />
+		</id>
+		<property name="monkeyname" column="MonkeyName" />
+
+		<set name="humans" table="human_monkey"  inverse="true"  cascade="all">
+			<key>
+				<column name="monkeyid"  not-null="true"/>
+			</key>
+			<many-to-many class="Many2Many.Human" column="humanid"></many-to-many>
+			
+		</set>
+	</class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+	<class name="Model.SecureDataVault"
+		table="BCCSC02_OWNER.SECURE_DATA_VAULT">
+		<!-- SDV_VAULT_SEQ_NBR: INTEGER NOT NULL -->
+		<id name="vaultSeqNumber" column="SDV_VAULT_SEQ_NBR">
+			<generator class="increment" />
+		</id>
+		<!-- SDV_KEY_ID: VARCHAR2(20) NULL -->
+		<property name="keyID" column="SDV_KEY_ID" />
+		<!-- SDV_APP_ID: VARCHAR2(5) NULL -->
+		<property name="appID" column="SDV_APP_ID" />
+		<!-- SDV_SECURE_DATA_TXT: VARCHAR2(100) NULL -->
+		<property name="secureDataTxt" column="SDV_SECURE_DATA_TXT" />
+		<!-- SDV_SECURE_TOKEN_ID: VARCHAR2(16) NULL -->
+		<property name="secureTokenID" column="SDV_SECURE_TOKEN_ID" />
+		<!-- SDV_CREATED_DT: DATE NULL -->
+		<property name="createdDate" column="SDV_CREATED_DT" />
+		<!-- SDV_CREATED_USER_ID: VARCHAR2(20) NULL -->
+		<property name="createdUserID" column="SDV_CREATED_USER_ID" />
+		<!-- SDV_PURGE_DT: DATE NULL -->
+		<property name="purgeDate" column="SDV_PURGE_DT" />
+<set name="creditcardinfo" table="BCCSC02_OWNER.CREDIT_CARD_INFO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SDV_VAULT_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="Model.CreditCardInfo" />
+        </set>
+
+	</class>
+</hibernate-mapping>

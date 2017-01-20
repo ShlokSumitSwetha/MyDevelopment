@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.i21.bccs.model.BatchEventLog" table="BATCH_EVENT_LOG" schema="BCCSC02_OWNER">
+        <id name="belEventSeqNbr" type="big_decimal">
+            <column name="BEL_EVENT_SEQ_NBR" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="belEventNm" type="string">
+            <column name="BEL_EVENT_NM" length="50" />
+        </property>
+        <property name="belEventStartTs" type="serializable">
+            <column name="BEL_EVENT_START_TS" />
+        </property>
+        <property name="belEventEndTs" type="serializable">
+            <column name="BEL_EVENT_END_TS" />
+        </property>
+        <property name="belEventStatus" type="string">
+            <column name="BEL_EVENT_STATUS" length="3" />
+        </property>
+        <property name="belRecordCnt" type="big_decimal">
+            <column name="BEL_RECORD_CNT" precision="22" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

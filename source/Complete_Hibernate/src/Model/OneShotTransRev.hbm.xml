@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+            <!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+      
+<hibernate-mapping>
+<class 
+    name="com.i21.cc.model.OneShotTransRev" 
+    table=""
+>
+	<!-- OTR_REV_SEQ_NBR: INTEGER NOT NULL -->
+	<id
+        name="revSeqNumber"
+        column="OTR_REV_SEQ_NBR"
+    >
+        <generator class="increment" />
+    </id>
+    <!-- OCT_TRANS_SEQ_NBR: INTEGER NULL (FK) -->
+    <property
+        name="transSeqNumber"
+        column="OCT_TRANS_SEQ_NBR"
+    />
+    <!-- OTR_REV_TRACKING_NBR: VARCHAR2(22) NULL -->
+    <property
+        name="revTrackingNumber"
+        column="OTR_REV_TRACKING_NBR"
+    />
+    <!-- OTR_REV_AMT: NUMBER(9,2) NULL -->
+    <property
+        name="revAmount"
+        column="OTR_REV_AMT"
+    />
+    <!-- OTR_CARD_REV_DT: Date NULL -->
+    <property
+        name="cardRevDate"
+        column="OTR_CARD_REV_DT"
+    />
+    <!-- OTR_REV_SETTLED_DT: Date NULL -->
+    <property
+        name="revSettledDate"
+        column="OTR_REV_SETTLED_DT"
+    />
+    <!-- OTR_REV_USER_ID: VARCHAR2(20) NULL -->
+    <property
+        name="revUserID"
+        column="OTR_REV_USER_ID"
+    />
+    <!-- OTR_SETTLE_BATCH_NBR: VARCHAR2() NULL -->
+    <property
+        name="settleBatchNumber"
+        column="OTR_SETTLE_BATCH_NBR"
+    />
+    <!-- BAF_SETTLE_FILE_SEQ_NBR: NUMBER(20) NULL (FK) -->
+    <property
+        name="settleFileSeqNumber"
+        column="BAF_SETTLE_FILE_SEQ_NBR"
+    />
+    <!-- BAF_RETURN_FILE_SEQ_NBR: NUMBER(20) NULL (FK) -->
+    <property
+        name="returnFileSeqNumber"
+        column="BAF_RETURN_FILE_SEQ_NBR"
+    />
+    <!-- OTR_CREATED_DT: Date NULL -->
+    <property
+        name="createdDate"
+        column="OTR_CREATED_DT"
+    />
+    <!-- OTR_MODIFIED_DT: Date NULL -->
+    <property
+        name="modifiedDate"
+        column="OTR_MODIFIED_DT"
+    />
+    <!-- OTR_MODIFIED_USER_ID: VARCHAR2(20) NULL -->
+    <property
+        name="modifiedUserID"
+        column="OTR_MODIFIED_USER_ID"
+    />
+
+</class>
+</hibernate-mapping>
