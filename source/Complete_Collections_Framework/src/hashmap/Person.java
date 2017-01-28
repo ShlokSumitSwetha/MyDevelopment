@@ -23,7 +23,7 @@ public class Person {
 		int result = 1;
 		result = prime * result + id;
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		return 1;
+		return result;
 	}
 	@Override
 	public boolean equals(Object obj) {
