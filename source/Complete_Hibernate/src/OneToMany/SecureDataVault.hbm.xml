@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.i21.bccs.model.SecureDataVault" table="SECURE_DATA_VAULT" schema="BCCSC02_OWNER">
+        <id name="sdvVaultSeqNbr" type="big_decimal">
+            <column name="SDV_VAULT_SEQ_NBR" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="sdvKeyId" type="string">
+            <column name="SDV_KEY_ID" length="20" />
+        </property>
+        <property name="sdvSecureDataTxt" type="string">
+            <column name="SDV_SECURE_DATA_TXT" length="100" />
+        </property>
+        <property name="sdvSecureTokenId" type="string">
+            <column name="SDV_SECURE_TOKEN_ID" length="16" />
+        </property>
+        <property name="sdvCreatedDt" type="date">
+            <column name="SDV_CREATED_DT" length="7" />
+        </property>
+        <property name="sdvCreatedUserId" type="string">
+            <column name="SDV_CREATED_USER_ID" length="20" />
+        </property>
+        <property name="sdvPurgeDt" type="date">
+            <column name="SDV_PURGE_DT" length="7" />
+        </property>
+        <property name="sdvAppId" type="string">
+            <column name="SDV_APP_ID" length="5" />
+        </property>
+        <set name="creditCardInfos" table="CREDIT_CARD_INFO" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="SDV_VAULT_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.CreditCardInfo" />
+        </set>
+    </class>
+</hibernate-mapping>

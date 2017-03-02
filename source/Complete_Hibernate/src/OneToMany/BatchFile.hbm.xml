@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.i21.bccs.model.BatchFile" table="BATCH_FILE" schema="BCCSC02_OWNER">
+        <id name="bafFileSeqNbr" type="big_decimal">
+            <column name="BAF_FILE_SEQ_NBR" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="bafFileNm" type="string">
+            <column name="BAF_FILE_NM" length="50" />
+        </property>
+        <property name="bafFileTypCd" type="string">
+            <column name="BAF_FILE_TYP_CD" length="10" />
+        </property>
+        <property name="bafFileDt" type="date">
+            <column name="BAF_FILE_DT" length="7" />
+        </property>
+        <set name="oneshotTransRevsForBafReturnFileSeqNbr" table="ONESHOT_TRANS_REV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BAF_RETURN_FILE_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.OneshotTransRev" />
+        </set>
+        <set name="oneshotCcTransesForBafReturnFileSeqNbr" table="ONESHOT_CC_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BAF_RETURN_FILE_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.OneshotCcTrans" />
+        </set>
+        <set name="oneshotTransRevsForBafSettleFileSeqNbr" table="ONESHOT_TRANS_REV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BAF_SETTLE_FILE_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.OneshotTransRev" />
+        </set>
+        <set name="oneshotCcTransesForBafSettleFileSeqNbr" table="ONESHOT_CC_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="BAF_SETTLE_FILE_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.OneshotCcTrans" />
+        </set>
+    </class>
+</hibernate-mapping>

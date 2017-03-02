@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.i21.bccs.model.CreditCardInfo" table="CREDIT_CARD_INFO" schema="BCCSC02_OWNER">
+        <id name="cciCardSeqNbr" type="big_decimal">
+            <column name="CCI_CARD_SEQ_NBR" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="secureDataVault" class="com.i21.bccs.model.SecureDataVault" fetch="select">
+            <column name="SDV_VAULT_SEQ_NBR" precision="22" scale="0" />
+        </many-to-one>
+        <property name="cciSecureTokenId" type="string">
+            <column name="CCI_SECURE_TOKEN_ID" length="16" />
+        </property>
+        <property name="cciCardExpDt" type="date">
+            <column name="CCI_CARD_EXP_DT" length="7" />
+        </property>
+        <property name="cciCardTypeDesc" type="string">
+            <column name="CCI_CARD_TYPE_DESC" length="4" />
+        </property>
+        <property name="cciPolicyNbr" type="string">
+            <column name="CCI_POLICY_NBR" length="20" />
+        </property>
+        <property name="cciQuoteNbr" type="string">
+            <column name="CCI_QUOTE_NBR" length="20" />
+        </property>
+        <property name="cciFirstNm" type="string">
+            <column name="CCI_FIRST_NM" length="20" />
+        </property>
+        <property name="cciMiddleNm" type="string">
+            <column name="CCI_MIDDLE_NM" length="1" />
+        </property>
+        <property name="cciLastNm" type="string">
+            <column name="CCI_LAST_NM" length="20" />
+        </property>
+        <property name="cciLine1Addr" type="string">
+            <column name="CCI_LINE1_ADDR" length="30" />
+        </property>
+        <property name="cciLine2Addr" type="string">
+            <column name="CCI_LINE2_ADDR" length="30" />
+        </property>
+        <property name="cciCityNm" type="string">
+            <column name="CCI_CITY_NM" length="22" />
+        </property>
+        <property name="cciStCd" type="string">
+            <column name="CCI_ST_CD" length="2" />
+        </property>
+        <property name="cciZipCd" type="string">
+            <column name="CCI_ZIP_CD" length="5" />
+        </property>
+        <property name="cciCardDataStatCd" type="string">
+            <column name="CCI_CARD_DATA_STAT_CD" length="3" />
+        </property>
+        <property name="cciLastActivityTypCd" type="string">
+            <column name="CCI_LAST_ACTIVITY_TYP_CD" length="3" />
+        </property>
+        <property name="cciLastAuthDt" type="date">
+            <column name="CCI_LAST_AUTH_DT" length="7" />
+        </property>
+        <property name="cciLastSettleDt" type="date">
+            <column name="CCI_LAST_SETTLE_DT" length="7" />
+        </property>
+        <property name="cciCreatedDt" type="date">
+            <column name="CCI_CREATED_DT" length="7" />
+        </property>
+        <property name="cciModifiedDt" type="date">
+            <column name="CCI_MODIFIED_DT" length="7" />
+        </property>
+        <property name="cciAppId" type="string">
+            <column name="CCI_APP_ID" length="5" />
+        </property>
+        <set name="creditCardAuths" table="CREDIT_CARD_AUTH" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CCI_CARD_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.CreditCardAuth" />
+        </set>
+        <set name="oneshotCcTranses" table="ONESHOT_CC_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CCI_CARD_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.OneshotCcTrans" />
+        </set>
+    </class>
+</hibernate-mapping>

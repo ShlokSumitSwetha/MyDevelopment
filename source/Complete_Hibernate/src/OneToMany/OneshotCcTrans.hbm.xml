@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.i21.bccs.model.OneshotCcTrans" table="ONESHOT_CC_TRANS" schema="BCCSC02_OWNER">
+        <id name="octTransSeqNbr" type="big_decimal">
+            <column name="OCT_TRANS_SEQ_NBR" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="creditCardInfo" class="com.i21.bccs.model.CreditCardInfo" fetch="select">
+            <column name="CCI_CARD_SEQ_NBR" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="creditCardAuth" class="com.i21.bccs.model.CreditCardAuth" fetch="select">
+            <column name="CCA_AUTH_SEQ_NBR" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="batchFileByBafSettleFileSeqNbr" class="com.i21.bccs.model.BatchFile" fetch="select">
+            <column name="BAF_SETTLE_FILE_SEQ_NBR" precision="22" scale="0" />
+        </many-to-one>
+        <many-to-one name="batchFileByBafReturnFileSeqNbr" class="com.i21.bccs.model.BatchFile" fetch="select">
+            <column name="BAF_RETURN_FILE_SEQ_NBR" precision="22" scale="0" />
+        </many-to-one>
+        <property name="octCustIpAddr" type="string">
+            <column name="OCT_CUST_IP_ADDR" length="15" />
+        </property>
+        <property name="octPolicyNbr" type="string">
+            <column name="OCT_POLICY_NBR" length="20" />
+        </property>
+        <property name="octQuoteNbr" type="string">
+            <column name="OCT_QUOTE_NBR" length="20" />
+        </property>
+        <property name="octSourceAppCd" type="string">
+            <column name="OCT_SOURCE_APP_CD" length="3" />
+        </property>
+        <property name="octTransAmt" type="big_decimal">
+            <column name="OCT_TRANS_AMT" precision="9" />
+        </property>
+        <property name="octTrackingNbr" type="string">
+            <column name="OCT_TRACKING_NBR" length="22" />
+        </property>
+        <property name="octMerchantNbr" type="string">
+            <column name="OCT_MERCHANT_NBR" length="6" />
+        </property>
+        <property name="octTransStatusCd" type="string">
+            <column name="OCT_TRANS_STATUS_CD" length="20" />
+        </property>
+        <property name="octInsuredStCd" type="string">
+            <column name="OCT_INSURED_ST_CD" length="2" />
+        </property>
+        <property name="octTransStatusDesc" type="string">
+            <column name="OCT_TRANS_STATUS_DESC" length="100" />
+        </property>
+        <property name="octInsuredFrstNm" type="string">
+            <column name="OCT_INSURED_FRST_NM" length="20" />
+        </property>
+        <property name="octInsuredMidNm" type="string">
+            <column name="OCT_INSURED_MID_NM" length="1" />
+        </property>
+        <property name="octInsuredLastNm" type="string">
+            <column name="OCT_INSURED_LAST_NM" length="20" />
+        </property>
+        <property name="octSettleInd" type="java.lang.Character">
+            <column name="OCT_SETTLE_IND" length="1" />
+        </property>
+        <property name="octTransDt" type="date">
+            <column name="OCT_TRANS_DT" length="7" />
+        </property>
+        <property name="octSettledDt" type="date">
+            <column name="OCT_SETTLED_DT" length="7" />
+        </property>
+        <property name="octSettleBatchNbr" type="string">
+            <column name="OCT_SETTLE_BATCH_NBR" length="11" />
+        </property>
+        <property name="octTransUserId" type="string">
+            <column name="OCT_TRANS_USER_ID" length="20" />
+        </property>
+        <property name="octCreatedDt" type="date">
+            <column name="OCT_CREATED_DT" length="7" />
+        </property>
+        <property name="octModifiedDt" type="date">
+            <column name="OCT_MODIFIED_DT" length="7" />
+        </property>
+        <property name="octModifiedUserId" type="string">
+            <column name="OCT_MODIFIED_USER_ID" length="20" />
+        </property>
+        <property name="octAppId" type="string">
+            <column name="OCT_APP_ID" length="5" />
+        </property>
+        <set name="oneshotTransRevs" table="ONESHOT_TRANS_REV" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="OCT_TRANS_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="com.i21.bccs.model.OneshotTransRev" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 24, 2011 7:06:05 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="One2Many.Employee12m" table="Employee_one_many">
+		<id name="empno">
+			<column name="empno" precision="22" scale="0" />
+			<generator class="native" />
+		</id>
+		<property name="empName" type="string">
+			<column name="empName" length="50" />
+		</property>
+
+		<set name="address" table="STUDENT_PHONE"
+			cascade="all">
+
+			<key column="foreignkey" />
+
+			<many-to-many column="addressid" unique="true"
+				class="One2Many.Address12m" />
+
+		</set>
+
+	</class>
+
+
+	<class name="One2Many.Address12m" table="Addres_One_many">
+		<id name="id">
+			<column name="addressid" precision="22" scale="0" />
+			<generator class="native" />
+		</id>
+		<property name="street" type="string">
+			<column name="street" length="50" />
+		</property>
+		<property name="city" type="string">
+			<column name="city" length="50" />
+		</property>
+		<property name="state" type="string">
+			<column name="state" length="50" />
+		</property>
+		<property name="pinno">
+			<column name="pinno" length="50" />
+		</property>
+
+
+	</class>
+</hibernate-mapping>

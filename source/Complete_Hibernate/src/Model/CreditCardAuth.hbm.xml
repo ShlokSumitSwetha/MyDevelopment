@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+                "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+
+
+<hibernate-mapping>
+
+	<class name="Model.CreditCardAuth" table="BCCSC02_OWNER.CREDIT_CARD_AUTH">
+		<!-- CCI_CARD_SEQ_NBR: INTEGER NULL (FK) -->
+		<id name="authSeqNumber" column="CCA_AUTH_SEQ_NBR">
+			<generator class="assigned" />
+		</id> 
+		<!-- CCA_AUTH_SEQ_NBR: INTEGER NOT NULL -->
+		<property name="cardSeqNumber" column="CCI_CARD_SEQ_NBR" />
+		<!-- CCA_AUTH_TYP_CD: VARCHAR2(10) NULL -->
+		<property name="authTypeCode" column="CCA_AUTH_TYP_CD" />
+		<!-- CCA_AUTH_AMT: NUMBER(9,2) NULL -->
+		<property name="authAmount" column="CCA_AUTH_AMT" />
+		<!-- CCA_AUTH_CD: VARCHAR2(10) NULL -->
+		<property name="ccAuthCode" column="CCA_AUTH_CD" />
+		<!-- CCA_RESPONSE_CD: VARCHAR2(10) NULL -->
+		<property name="rsponseCode" column="CCA_RESPONSE_CD" />
+		<!-- CCA_RESPONSE_DESC: VARCHAR2(20) NULL -->
+		<property name="responseDesc" column="CCA_RESPONSE_DESC" />
+		<!-- CCA_CREATED_DT: DATE NULL -->
+		<property name="createdDate" column="CCA_CREATED_DT" />
+
+		<!-- associations -->
+		<!--<set name="oneshotCcTranses" table="BCCSC02_OWNER.ONESHOT_CC_TRANS" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="CCA_AUTH_SEQ_NBR" precision="22" scale="0" />
+            </key>
+            <one-to-many class="Model.OneshotCcTrans" />
+        </set>
+	--></class>
+</hibernate-mapping>
